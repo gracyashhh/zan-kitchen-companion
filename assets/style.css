@@ -1,0 +1,1545 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+/* ==========================================
+   ZĀN — GLOBAL DESIGN SYSTEM
+========================================== */
+
+:root {
+    --bg: #FFFAFC;
+    --white: #FFFFFF;
+    --pink: #F5C5D8;
+    --pink-light: #FBE8EF;
+    --pink-pale: #FFF3F7;
+    --rose: #C77998;
+    --rose-dark: #A95D7D;
+    --plum: #513747;
+    --muted: #907D87;
+    --line: #F0E3E9;
+    --shadow: 0 12px 32px rgba(81, 55, 71, .06);
+    --radius: 22px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.stApp,
+[data-testid="stAppViewContainer"] {
+    background: var(--bg);
+    color: var(--plum);
+    font-family: 'DM Sans', sans-serif;
+}
+
+[data-testid="stHeader"] {
+    background: transparent;
+}
+
+[data-testid="stSidebar"] {
+    display: none;
+}
+
+#MainMenu,
+footer {
+    visibility: hidden;
+}
+
+.main .block-container {
+    max-width: 1180px;
+    padding: 0 30px 65px;
+}
+
+body,
+[class*="css"] {
+    font-family: 'DM Sans', sans-serif;
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ==========================================
+   HEADER — DESKTOP
+========================================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    background: rgba(255, 250, 252, .96);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.header-inner {
+    min-height: 76px;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+/* Brand */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+}
+
+.brand-mark {
+    width: 43px;
+    height: 43px;
+    border-radius: 14px;
+    background: linear-gradient(140deg, #F8D8E5, #EFB4CC);
+    color: var(--plum);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(190, 112, 145, .12);
+}
+
+.brand-mark span {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .65rem;
+}
+
+.brand-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    color: var(--plum);
+    font-size: 1.65rem;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.brand-subtitle {
+    color: var(--muted);
+    font-size: .47rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+}
+
+/* Desktop navigation */
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    flex: 1;
+}
+
+.nav-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 15px;
+    border-radius: 12px;
+    color: #806B77;
+    font-size: .82rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background .2s ease, color .2s ease;
+}
+
+.nav-link:hover {
+    background: var(--pink-pale);
+    color: var(--plum);
+}
+
+.nav-link.active {
+    background: var(--pink-light);
+    color: var(--rose-dark);
+    font-weight: 700;
+}
+
+/* .kitchen-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 41px;
+    padding: 0 16px;
+    border-radius: 13px;
+    background: var(--plum);
+    color: white;
+    font-size: .8rem;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background .2s ease, transform .2s ease;
+} */
+
+/* .kitchen-link:hover {
+    background: var(--rose-dark);
+    color: white;
+    transform: translateY(-1px);
+} */
+
+/* Mobile navigation is hidden on desktop */
+
+.mobile-menu {
+    display: none;
+}
+
+
+/* ==========================================
+   PAGE WIDTH AND SPACING
+========================================== */
+
+.page-container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.overview-section {
+    margin-top: 54px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(250px, .8fr);
+    align-items: center;
+    gap: 30px;
+    min-height: 390px;
+    padding: 48px 58px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 30px;
+    border: 1px solid #F0DCE5;
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255,255,255,.88),
+            transparent 25%
+        ),
+        linear-gradient(
+            115deg,
+            #FBE9F0 0%,
+            #F8DDE8 48%,
+            #F1D9EC 100%
+        );
+    box-shadow: var(--shadow);
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 580px;
+}
+
+.eyebrow {
+    color: var(--rose);
+    font-size: .66rem;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.eyebrow-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: var(--rose);
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.hero h1 {
+    color: var(--plum);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5.1vw, 4.35rem);
+    font-weight: 500;
+    letter-spacing: -2px;
+    line-height: 1.06;
+    margin: 22px 0 15px;
+}
+
+.hero h1 em {
+    color: var(--rose-dark);
+    font-weight: 500;
+}
+
+.hero-description {
+    max-width: 440px;
+    color: #806575;
+    font-size: .95rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.hero-tags span {
+    padding: 8px 12px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,.8);
+    background: rgba(255,255,255,.56);
+    color: #765469;
+    font-size: .68rem;
+    font-weight: 700;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 11px;
+    margin-top: 27px;
+}
+
+.button-primary,
+.button-secondary {
+    display: inline-flex;
+    min-height: 47px;
+    padding: 0 19px;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    border-radius: 14px;
+    font-size: .82rem;
+    font-weight: 700;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.button-primary {
+    background: var(--plum);
+    color: white;
+    box-shadow: 0 7px 18px rgba(81,55,71,.14);
+}
+
+.button-primary:hover {
+    background: var(--rose-dark);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.button-secondary {
+    background: rgba(255,255,255,.65);
+    border: 1px solid rgba(255,255,255,.9);
+    color: var(--plum);
+}
+
+.button-secondary:hover {
+    background: white;
+    color: var(--plum);
+    transform: translateY(-2px);
+}
+
+
+/* Hero illustration */
+
+.hero-art {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.art-circle {
+    width: 205px;
+    height: 205px;
+    position: relative;
+    border-radius: 50%;
+    background: rgba(255,255,255,.55);
+    border: 1px solid rgba(255,255,255,.85);
+    box-shadow: 0 15px 45px rgba(133,83,111,.09);
+}
+
+.art-orbit {
+    position: absolute;
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 50%;
+}
+
+.orbit-one {
+    width: 270px;
+    height: 270px;
+}
+
+.orbit-two {
+    width: 235px;
+    height: 235px;
+    border-style: dashed;
+    opacity: .7;
+}
+
+.fruit {
+    position: absolute;
+    font-size: 2.7rem;
+    filter: drop-shadow(0 7px 8px rgba(100,54,75,.09));
+}
+
+.fruit-one {
+    top: 25px;
+    left: 28px;
+    transform: rotate(-12deg);
+}
+
+.fruit-two {
+    top: 42px;
+    right: 23px;
+    transform: rotate(13deg);
+}
+
+.fruit-three {
+    bottom: 25px;
+    left: 42px;
+    transform: rotate(12deg);
+}
+
+.fruit-four {
+    bottom: 26px;
+    right: 32px;
+    transform: rotate(-12deg);
+}
+
+.art-sparkle {
+    position: absolute;
+    top: 83px;
+    left: 86px;
+    font-size: 2.2rem;
+    color: var(--rose);
+}
+
+.art-note {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 12px 17px;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    background: white;
+    color: var(--plum);
+    font-family: 'Playfair Display', serif;
+    font-size: .92rem;
+    line-height: 1.4;
+    box-shadow: var(--shadow);
+    transform: rotate(3deg);
+}
+
+
+/* ==========================================
+   SECTION HEADINGS
+========================================== */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 15px;
+    margin-bottom: 17px;
+}
+
+.section-heading h2 {
+    margin: 6px 0 0;
+    color: var(--plum);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.85rem;
+    font-weight: 500;
+}
+
+.section-note {
+    padding-bottom: 5px;
+    color: var(--muted);
+    font-size: .74rem;
+}
+
+
+/* ==========================================
+   STATS
+========================================== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.stat-card {
+    min-width: 0;
+    min-height: 155px;
+    padding: 21px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: white;
+    box-shadow: var(--shadow);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 38px rgba(100,54,75,.08);
+}
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    background: var(--pink-light);
+    color: var(--rose-dark);
+    font-size: 1.05rem;
+}
+
+.stat-number {
+    margin-top: 13px;
+    color: var(--plum);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.stat-label {
+    margin-top: 6px;
+    color: #816D78;
+    font-size: .79rem;
+    font-weight: 700;
+}
+
+.stat-note {
+    margin-top: 4px;
+    color: #A28D98;
+    font-size: .67rem;
+}
+
+
+/* ==========================================
+   FEATURE CARDS
+========================================== */
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 230px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: white;
+    box-shadow: var(--shadow);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.feature-card:hover {
+    color: var(--plum);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 38px rgba(100,54,75,.08);
+}
+
+.feature-card-pink {
+    background: linear-gradient(140deg, #FCEBF2, #FFF7FA);
+    border-color: #F3E0E8;
+}
+
+.feature-kicker {
+    color: var(--rose);
+    font-size: .63rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.feature-title {
+    margin-top: 13px;
+    color: var(--plum);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+}
+
+.feature-card p {
+    max-width: 410px;
+    margin: 8px 0 14px;
+    font-size: .81rem;
+}
+
+.feature-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    color: var(--rose-dark);
+    font-size: .77rem;
+    font-weight: 700;
+}
+
+.feature-decoration {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    opacity: .75;
+    font-size: 1.2rem;
+}
+
+
+/* ==========================================
+   OTHER PAGE HEADINGS
+========================================== */
+
+.page-intro {
+    padding: 39px 0 25px;
+}
+
+.page-intro h1 {
+    margin: 8px 0;
+    color: var(--plum);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 3.6rem);
+    font-weight: 500;
+    letter-spacing: -1.5px;
+}
+
+.page-intro h1 em {
+    color: var(--rose);
+    font-weight: 500;
+}
+
+.page-intro p {
+    max-width: 560px;
+    font-size: .92rem;
+}
+
+.soft-panel {
+    margin: 5px 0 20px;
+    padding: 24px 26px;
+    border: 1px solid #F1DEE6;
+    border-radius: var(--radius);
+    background: linear-gradient(130deg, #FFF1F6, #FFFFFF);
+}
+
+.panel-kicker {
+    color: var(--rose);
+    font-size: .64rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.soft-panel h2 {
+    margin: 8px 0 5px;
+    color: var(--plum);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-weight: 500;
+}
+
+.soft-panel p {
+    margin-bottom: 0;
+    font-size: .83rem;
+}
+
+.inventory-heading {
+    margin-top: 34px;
+}
+
+
+/* ==========================================
+   INGREDIENTS AND EMPTY STATES
+========================================== */
+
+.inventory-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 57px;
+    margin: 9px 0;
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: white;
+}
+
+.inventory-symbol {
+    color: var(--rose);
+}
+
+.inventory-name {
+    color: var(--plum);
+    font-weight: 700;
+}
+
+.inventory-quantity {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: .78rem;
+}
+
+.empty-state {
+    padding: 38px 22px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: white;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.empty-symbol {
+    margin-bottom: 13px;
+    font-size: 2rem;
+}
+
+.empty-state h3 {
+    color: var(--plum);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.empty-state p {
+    max-width: 490px;
+    margin: 0 auto 14px;
+    font-size: .84rem;
+}
+
+.recipe-placeholder {
+    margin-top: 17px;
+}
+
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 13px;
+}
+
+.ingredient-chip {
+    padding: 8px 12px;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid var(--line);
+    color: var(--plum);
+    font-size: .76rem;
+    font-weight: 600;
+}
+
+.form-heading {
+    margin: 28px 0 12px;
+    color: var(--plum);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+}
+
+.purchased-note {
+    padding-left: 10px;
+    color: #64856E;
+    font-size: .72rem;
+}
+
+
+/* ==========================================
+   STREAMLIT CONTROLS
+========================================== */
+
+[data-testid="stFileUploader"] {
+    margin: 10px 0 22px;
+    padding: 18px;
+    border: 1px dashed #D9A8BC;
+    border-radius: 18px;
+    background: white;
+}
+
+[data-testid="stFileUploader"] section {
+    background: transparent;
+}
+
+.stTextInput input,
+.stTextArea textarea {
+    min-height: 45px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+    color: var(--plum);
+}
+
+.stTextInput input:focus,
+.stTextArea textarea:focus {
+    border-color: var(--rose);
+    box-shadow: 0 0 0 1px var(--rose);
+}
+
+.stButton > button,
+.stFormSubmitButton > button {
+    min-height: 43px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: white;
+    color: var(--plum);
+    font-family: 'DM Sans', sans-serif;
+    font-size: .82rem;
+    font-weight: 700;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.stButton > button:hover,
+.stFormSubmitButton > button:hover {
+    border-color: var(--pink);
+    background: var(--pink-pale);
+    color: var(--plum);
+}
+
+[data-testid="stCheckbox"] label {
+    color: var(--plum);
+    font-size: .88rem;
+}
+
+[data-testid="stAlert"] {
+    border-radius: 14px;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 55px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+    color: #A28D98;
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+}
+
+.page-footer span:first-child {
+    color: var(--rose-dark);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 950px) {
+
+    .main .block-container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .header-inner {
+        gap: 14px;
+    }
+
+    .nav-link {
+        padding: 0 10px;
+        font-size: .76rem;
+    }
+
+    .hero {
+        padding: 40px 36px;
+    }
+}
+
+
+/* ==========================================
+   MOBILE — IPHONE WIDTHS
+========================================== */
+
+@media (max-width: 760px) {
+
+    .main .block-container {
+        padding: 0 17px 40px;
+    }
+
+    /* Header becomes one clean row */
+
+    .header-inner {
+        min-height: 67px;
+        gap: 12px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        font-size: 1.55rem;
+    }
+
+    .brand-name {
+        font-size: 1.48rem;
+    }
+
+    .brand-subtitle {
+        font-size: .42rem;
+    }
+
+    .desktop-nav,
+    .desktop-kitchen {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+        position: relative;
+        margin-left: auto;
+    }
+
+    .mobile-menu summary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 41px;
+        padding: 0 13px;
+        border: 1px solid #F0D9E3;
+        border-radius: 12px;
+        background: white;
+        color: var(--plum);
+        cursor: pointer;
+        list-style: none;
+        font-size: .78rem;
+        font-weight: 700;
+        user-select: none;
+    }
+
+    .mobile-menu summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .mobile-menu[open] summary {
+        background: var(--pink-light);
+        border-color: #EBC9D8;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        width: 16px;
+    }
+
+    .hamburger span {
+        display: block;
+        height: 2px;
+        width: 16px;
+        border-radius: 2px;
+        background: var(--plum);
+    }
+
+    .mobile-menu-panel {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        width: min(260px, calc(100vw - 34px));
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 17px;
+        background: white;
+        box-shadow: 0 15px 45px rgba(81,55,71,.15);
+    }
+
+    .menu-heading {
+        padding: 10px 11px 13px;
+        color: var(--rose-dark);
+        font-family: 'Playfair Display', serif;
+        font-size: 1.1rem;
+    }
+
+    .mobile-menu-panel .nav-link {
+        justify-content: flex-start;
+        min-height: 45px;
+        padding: 0 12px;
+        border-radius: 10px;
+        font-size: .85rem;
+    }
+
+    .menu-divider {
+        height: 1px;
+        margin: 8px 4px;
+        background: var(--line);
+    }
+
+    .menu-kitchen {
+        min-height: 43px;
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        border-radius: 10px;
+        background: var(--plum);
+        color: white;
+        font-size: .84rem;
+        font-weight: 700;
+    }
+
+    .menu-kitchen:hover {
+        background: var(--rose-dark);
+        color: white;
+    }
+
+    /* Hero becomes a single column */
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+        min-height: auto;
+        padding: 28px 23px 20px;
+        border-radius: 23px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.55rem, 11vw, 3.3rem);
+        letter-spacing: -1.3px;
+        line-height: 1.08;
+        margin: 17px 0 12px;
+    }
+
+    .hero-description {
+        font-size: .88rem;
+        line-height: 1.65;
+    }
+
+    .hero-tags {
+        margin-top: 17px;
+        gap: 6px;
+    }
+
+    .hero-tags span {
+        padding: 7px 9px;
+        font-size: .62rem;
+    }
+
+    .hero-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 9px;
+        margin-top: 21px;
+    }
+
+    .button-primary,
+    .button-secondary {
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 46px;
+    }
+
+    /* Small illustration below hero copy */
+
+    .hero-art {
+        height: 155px;
+        margin-top: 2px;
+    }
+
+    .art-circle {
+        width: 125px;
+        height: 125px;
+    }
+
+    .orbit-one {
+        width: 160px;
+        height: 160px;
+    }
+
+    .orbit-two {
+        width: 143px;
+        height: 143px;
+    }
+
+    .fruit {
+        font-size: 1.75rem;
+    }
+
+    .fruit-one {
+        top: 15px;
+        left: 17px;
+    }
+
+    .fruit-two {
+        top: 24px;
+        right: 14px;
+    }
+
+    .fruit-three {
+        bottom: 15px;
+        left: 25px;
+    }
+
+    .fruit-four {
+        bottom: 15px;
+        right: 20px;
+    }
+
+    .art-sparkle {
+        top: 48px;
+        left: 52px;
+        font-size: 1.6rem;
+    }
+
+    .art-note {
+        right: 3px;
+        bottom: 0;
+        padding: 8px 11px;
+        font-size: .75rem;
+    }
+
+    /* Dashboard */
+
+    .overview-section {
+        margin-top: 37px;
+    }
+
+    .section-heading {
+        display: block;
+        margin-bottom: 14px;
+    }
+
+    .section-heading h2 {
+        font-size: 1.65rem;
+    }
+
+    .section-note {
+        display: block;
+        margin-top: 6px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .stat-card {
+        min-height: 140px;
+        padding: 15px;
+        border-radius: 17px;
+    }
+
+    .stat-card:last-child {
+        grid-column: 1 / -1;
+        min-height: 115px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        margin-top: 10px;
+    }
+
+    .stat-label {
+        font-size: .73rem;
+    }
+
+    .stat-note {
+        font-size: .64rem;
+    }
+
+    .feature-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+        margin-top: 17px;
+    }
+
+    .feature-card {
+        min-height: 190px;
+        padding: 21px;
+        border-radius: 18px;
+    }
+
+    .feature-title {
+        font-size: 1.4rem;
+    }
+
+    .page-intro {
+        padding: 29px 0 19px;
+    }
+
+    .page-intro h1 {
+        font-size: 2.55rem;
+        letter-spacing: -1px;
+    }
+
+    .soft-panel {
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .inventory-heading {
+        margin-top: 27px;
+    }
+
+    .inventory-item {
+        gap: 9px;
+        padding: 11px 12px;
+    }
+
+    .page-footer {
+        margin-top: 38px;
+        flex-wrap: wrap;
+    }
+}
+
+
+/* ==========================================
+   VERY SMALL PHONES
+========================================== */
+
+@media (max-width: 380px) {
+
+    .main .block-container {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .brand-subtitle {
+        display: none;
+    }
+
+    .hero {
+        padding: 24px 18px 17px;
+    }
+
+    .hero h1 {
+        font-size: 2.45rem;
+    }
+
+    .eyebrow {
+        font-size: .59rem;
+        letter-spacing: 1.3px;
+    }
+
+    .stat-card {
+        padding: 12px;
+    }
+}
+/* Prevent a dark background flash during Streamlit updates */
+
+html,
+body,
+#root,
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"] {
+    background-color: #FFFAFC !important;
+}
+
+[data-testid="stStatusWidget"] {
+    display: none !important;
+}
+
+/* Smooth visual changes */
+
+.stApp {
+    transition: background-color 0.15s ease;
+}
+
+.stButton > button {
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
+}
+
+/* Food detection and meal review cards */
+
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background: #FFFFFF !important;
+    border: 1px solid #F0E3E9 !important;
+    border-radius: 16px !important;
+    padding: 12px 15px !important;
+    margin-bottom: 10px !important;
+    box-shadow: 0 5px 18px rgba(81, 55, 71, 0.035);
+}
+
+
+/* ==========================================
+   ZĀN — AI DETECTION CARDS
+========================================== */
+
+div[class*="st-key-foodcard_fridge_"],
+div[class*="st-key-foodcard_meal_"] {
+    background: linear-gradient(135deg, #FFF4F8, #FFFFFF) !important;
+    border: 1px solid #F0DCE6 !important;
+    border-radius: 17px !important;
+    padding: 12px 15px !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 5px 18px rgba(81, 55, 71, 0.045) !important;
+}
+
+/* Inputs inside AI cards */
+
+div[class*="st-key-foodcard_fridge_"] input,
+div[class*="st-key-foodcard_meal_"] input {
+    background: #FFFAFC !important;
+    border: 1px solid #EBD8E1 !important;
+    border-radius: 10px !important;
+    color: #513747 !important;
+}
+
+/* Pink multiselect for recipe ingredient selection */
+
+[data-testid="stMultiSelect"] [data-baseweb="select"] {
+    background: #FFF7FA !important;
+    border-color: #EBD8E1 !important;
+    border-radius: 14px !important;
+}
+
+[data-testid="stMultiSelect"] [data-baseweb="tag"] {
+    background: #FBE8EF !important;
+    color: #75445B !important;
+    border: 1px solid #F0D9E3 !important;
+    border-radius: 20px !important;
+}
+
+/* ==========================================
+   ZĀN — FOOD REVIEW CARDS
+========================================== */
+
+div[class*="st-key-reviewcard_fridge_"],
+div[class*="st-key-reviewcard_meal_"] {
+    background: linear-gradient(
+        135deg,
+        #FFF1F6,
+        #FFFAFC
+    ) !important;
+
+    border: 1px solid #F0DCE6 !important;
+    border-radius: 17px !important;
+    padding: 14px 16px !important;
+    margin-bottom: 13px !important;
+
+    box-shadow: 0 5px 18px rgba(81, 55, 71, .045);
+}
+
+div[class*="st-key-reviewcard_fridge_"] input,
+div[class*="st-key-reviewcard_meal_"] input {
+    background: #FFFFFF !important;
+    border: 1px solid #EBD8E1 !important;
+    border-radius: 10px !important;
+    color: #513747 !important;
+}
+
+div[class*="st-key-reviewcard_fridge_"] label,
+div[class*="st-key-reviewcard_meal_"] label {
+    color: #654C5A;
+    font-size: .82rem;
+}
+
+/* ==========================================
+   ZĀN — CLICKABLE RECIPE INGREDIENT PILLS
+========================================== */
+
+.st-key-recipe_ingredient_selection button {
+    border-radius: 30px !important;
+    border: 1px solid #EBD8E1 !important;
+    background: #FFFFFF !important;
+    color: #654C5A !important;
+    font-weight: 600 !important;
+    padding: 7px 14px !important;
+}
+
+.st-key-recipe_ingredient_selection button[aria-pressed="true"] {
+    background: #FBE8EF !important;
+    color: #A95D7D !important;
+    border-color: #C77998 !important;
+}
+
+.st-key-recipe_ingredient_selection button:hover {
+    border-color: #C77998 !important;
+}
+/* Food review cards */
+div[class*="st-key-reviewcard_"] {
+    background: #FFFAFC !important;
+    border: 1px solid #F0E3E9 !important;
+    border-radius: 17px !important;
+    padding: 14px 16px !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 3px 12px rgba(169, 93, 125, 0.045) !important;
+}
+
+div[class*="st-key-reviewcard_"] input {
+    background: #FFFFFF !important;
+    border-radius: 11px !important;
+}
+
+/* Keep food review cards comfortable on phones */
+@media (max-width: 640px) {
+    div[class*="st-key-reviewcard_"] {
+        padding: 12px !important;
+    }
+}
+
+
+/* ==========================================
+   ZĀN — FRIDGE & MEALS PAGE POLISH
+========================================== */
+
+/* Centre page content to match the other pages */
+.st-key-fridge_page_content,
+.st-key-meals_page_content {
+    width: 100% !important;
+    max-width: 1120px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.st-key-fridge_page_content .page-heading,
+.st-key-fridge_page_content .page-intro,
+.st-key-meals_page_content .page-heading,
+.st-key-meals_page_content .page-intro {
+    max-width: 760px;
+    margin: 34px auto 28px;
+    text-align: center;
+}
+
+.st-key-fridge_page_content .page-heading h1,
+.st-key-fridge_page_content .page-intro h1,
+.st-key-meals_page_content .page-heading h1,
+.st-key-meals_page_content .page-intro h1 {
+    color: var(--plum);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: -1.2px;
+    margin: 8px 0;
+}
+
+.st-key-fridge_page_content .page-heading p,
+.st-key-fridge_page_content .page-intro p,
+.st-key-meals_page_content .page-heading p,
+.st-key-meals_page_content .page-intro p {
+    max-width: 560px;
+    margin: 0 auto;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .9rem;
+    text-align: center;
+}
+
+/* Keep fonts and colours consistent */
+.st-key-fridge_page_content,
+.st-key-meals_page_content {
+    color: var(--plum);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.st-key-fridge_page_content label,
+.st-key-meals_page_content label,
+.st-key-fridge_page_content [data-testid="stMarkdownContainer"],
+.st-key-meals_page_content [data-testid="stMarkdownContainer"] {
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Prominent rose-coloured primary actions */
+div[class*="st-key-save_fridge"] button,
+div[class*="st-key-save_meal"] button,
+div[class*="st-key-scan_fridge"] button,
+div[class*="st-key-scan_meal"] button,
+div[class*="st-key-recipe_generate"] button {
+    min-height: 49px !important;
+    border-radius: 15px !important;
+    background: #A95D7D !important;
+    border: 1px solid #A95D7D !important;
+    color: #FFFFFF !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: .94rem !important;
+    font-weight: 800 !important;
+    box-shadow: 0 7px 18px rgba(169, 93, 125, .22) !important;
+}
+
+div[class*="st-key-save_fridge"] button:hover,
+div[class*="st-key-save_meal"] button:hover,
+div[class*="st-key-scan_fridge"] button:hover,
+div[class*="st-key-scan_meal"] button:hover,
+div[class*="st-key-recipe_generate"] button:hover {
+    background: #87435F !important;
+    border-color: #87435F !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+}
+
+/* Small circular Remove icon */
+div[class*="st-key-remove_fridge_"] button,
+div[class*="st-key-remove_meal_"] button {
+    min-height: 34px !important;
+    width: 38px !important;
+    min-width: 38px !important;
+    padding: 0 !important;
+    border: 1px solid #F0E3E9 !important;
+    border-radius: 50% !important;
+    background: #FFFFFF !important;
+    color: #A95D7D !important;
+    font-size: 1.15rem !important;
+    box-shadow: none !important;
+}
+
+div[class*="st-key-remove_fridge_"] button:hover,
+div[class*="st-key-remove_meal_"] button:hover {
+    background: #FBE8EF !important;
+    border-color: #E7BFD0 !important;
+    color: #87435F !important;
+}
+
+/* Mobile spacing */
+@media (max-width: 760px) {
+    .st-key-fridge_page_content,
+    .st-key-meals_page_content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .st-key-fridge_page_content .page-heading,
+    .st-key-fridge_page_content .page-intro,
+    .st-key-meals_page_content .page-heading,
+    .st-key-meals_page_content .page-intro {
+        margin-top: 24px;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,1186 @@
+/* Zān: polished, mobile-first styling loaded AFTER your original style.css.
+   No existing selectors or files need to be edited by hand. */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+:root {
+    --zan-action: #8D2655;
+    --zan-action-hover: #68163D;
+    --zan-text: #513747;
+    --zan-muted: #907D87;
+    --zan-border: #F0E3E9;
+}
+
+/* The fridge, meal and recipe pages share the same centred page grid. */
+.st-key-fridge_page_content,
+.st-key-meals_page_content,
+.st-key-recipes_page_content,
+.st-key-shopping_page_content {
+    box-sizing: border-box;
+    max-width: 920px;
+    width: 100%;
+    margin-inline: auto;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--zan-text);
+}
+
+.zan-centred-intro {
+    text-align: center;
+    padding: 38px 0 26px;
+    margin-inline: auto;
+    max-width: 740px;
+}
+.zan-centred-intro .eyebrow {
+    font-size: .68rem;
+    color: #A53268;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+.zan-centred-intro h1 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(2.5rem, 5.5vw, 3.65rem) !important;
+    font-weight: 500 !important;
+    letter-spacing: -1.3px;
+    line-height: 1.16;
+    margin: 10px auto 12px;
+    color: var(--zan-text);
+}
+.zan-centred-intro h1 em {color: #C77998; font-weight: 500;}
+.zan-centred-intro p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .93rem;
+    color: var(--zan-muted);
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.zan-section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+    letter-spacing: -.3px;
+    margin: 32px 0 9px;
+    color: var(--zan-text);
+}
+.zan-calorie-total {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--zan-action);
+    margin: 8px 0;
+    font-weight: 600;
+}
+.zan-saved-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--zan-text);
+    font-size: .94rem;
+    font-family: 'DM Sans', sans-serif;
+}
+.zan-saved-row span {
+    color: var(--zan-muted);
+    font-size: .81rem;
+    text-align: right;
+}
+
+/* Clean blush review cards. */
+div[class*="st-key-reviewcard_fridge_"],
+div[class*="st-key-reviewcard_meal_"] {
+    border: 1px solid #EFDCE4 !important;
+    border-radius: 18px !important;
+    background: linear-gradient(140deg, #FFF4F8, #FFFFFF) !important;
+    box-shadow: 0 6px 18px rgba(81, 55, 71, .045) !important;
+    padding: 15px 18px !important;
+    margin-bottom: 12px !important;
+}
+
+.st-key-fridge_page_content label,
+.st-key-meals_page_content label,
+.st-key-recipes_page_content label,
+.st-key-shopping_page_content label {
+    font-family: 'DM Sans', sans-serif !important;
+    color: #6E5664;
+    font-weight: 600;
+}
+.st-key-fridge_page_content input,
+.st-key-meals_page_content input,
+.st-key-recipes_page_content input,
+.st-key-shopping_page_content input {
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Tiny visual remove action: keyboard and touch target remains 42px. */
+div[class*="st-key-remove_fridge_"],
+div[class*="st-key-remove_meal_"],
+div[class*="st-key-delete_inventory_"],
+div[class*="st-key-delete_meal_"],
+div[class*="st-key-remove_grocery_"] {
+    display: flex;
+    justify-content: flex-end;
+}
+div[class*="st-key-remove_fridge_"] button,
+div[class*="st-key-remove_meal_"] button,
+div[class*="st-key-delete_inventory_"] button,
+div[class*="st-key-delete_meal_"] button,
+div[class*="st-key-remove_grocery_"] button {
+    width: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    border: 1px solid #EEDCE4 !important;
+    border-radius: 999px !important;
+    background: white !important;
+    color: #A53268 !important;
+    font-size: 1.28rem !important;
+    font-weight: 500 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    box-shadow: none !important;
+}
+div[class*="st-key-remove_fridge_"] button:hover,
+div[class*="st-key-remove_meal_"] button:hover,
+div[class*="st-key-delete_inventory_"] button:hover,
+div[class*="st-key-delete_meal_"] button:hover,
+div[class*="st-key-remove_grocery_"] button:hover {
+    background: #FBE8EF !important;
+    border-color: #E7BFD0 !important;
+    color: #80244F !important;
+}
+
+/* Consistent saved-list cards */
+div[class*="st-key-inventory_row_"],
+div[class*="st-key-meal_history_"],
+div[class*="st-key-shopping_row_"] {
+    background: #FFFFFF !important;
+    border: 1px solid var(--zan-border) !important;
+    border-radius: 18px !important;
+    margin-bottom: 11px !important;
+    padding: 12px 16px !important;
+    box-shadow: 0 4px 14px rgba(81, 55, 71, .025) !important;
+}
+
+/* All ingredient pills are tap targets, not dropdowns. */
+.st-key-recipe_ingredient_selection button {
+    border-radius: 999px !important;
+    background: white !important;
+    border-color: #EED7E1 !important;
+    color: #705565 !important;
+    min-height: 39px !important;
+    padding: 6px 15px !important;
+    white-space: normal !important;
+}
+.st-key-recipe_ingredient_selection button[aria-pressed="true"] {
+    background: #FBE8EF !important;
+    border-color: #C77998 !important;
+    color: #9F315F !important;
+    font-weight: 800 !important;
+}
+
+/* Switch to the existing hamburger well before six tabs become cramped. */
+@media (max-width: 1000px) {
+    .st-key-desktop_navigation {display: none !important;}
+    .st-key-mobile_navigation {display: block !important;}
+    .st-key-app_header > div [data-testid="stHorizontalBlock"] {
+        gap: 10px;
+    }
+    .st-key-mobile_navigation [data-testid="stPopover"] button {
+        white-space: nowrap !important;
+        min-width: 44px;
+    }
+}
+@media (max-width: 760px) {
+    .st-key-app_header [data-testid="stHorizontalBlock"] {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto !important;
+        align-items: center !important;
+    }
+    .st-key-app_header [data-testid="column"] {
+        min-width: 0 !important;
+        width: auto !important;
+        flex: initial !important;
+    }
+    .zan-centred-intro {
+        padding: 22px 8px 18px;
+    }
+    .zan-centred-intro h1 {font-size: clamp(2.4rem, 10vw, 3.1rem) !important;}
+    div[class*="st-key-reviewcard_fridge_"],
+    div[class*="st-key-reviewcard_meal_"] {padding: 12px !important;}
+    .zan-section-title {margin-top: 22px;}
+    .zan-saved-row {align-items: flex-start;}
+    .zan-saved-row span {max-width: 40%;}
+}
+
+.st-key-personal_page_content {
+    box-sizing: border-box;
+    max-width: 920px;
+    width: 100%;
+    margin-inline: auto;
+    color: #513747;
+    font-family: 'DM Sans', sans-serif;
+}
+.st-key-personal_page_content .page-intro {
+    max-width: 720px;
+    margin-inline: auto;
+    text-align: center;
+}
+.st-key-personal_page_content .page-intro p {
+    margin-inline: auto;
+    text-align: center;
+}
+
+/* Tap-friendly alternatives for quick food correction. */
+div[class*="st-key-suggest_meal_"] button,
+div[class*="st-key-suggest_fridge_"] button {
+    min-height: 40px !important;
+    border-radius: 999px !important;
+    padding: 7px 13px !important;
+    background: #FFFFFF !important;
+    color: #694255 !important;
+    border: 1px solid #DDAFC4 !important;
+    white-space: normal !important;
+}
+div[class*="st-key-suggest_meal_"] button p,
+div[class*="st-key-suggest_fridge_"] button p {
+    color: #694255 !important;
+}
+div[class*="st-key-suggest_meal_"] button[aria-pressed="true"],
+div[class*="st-key-suggest_fridge_"] button[aria-pressed="true"] {
+    background: #FBE8EF !important;
+    color: #80244F !important;
+    border-color: #8D2655 !important;
+}
+div[class*="st-key-suggest_meal_"] button[aria-pressed="true"] p,
+div[class*="st-key-suggest_fridge_"] button[aria-pressed="true"] p {
+    color: #80244F !important;
+    font-weight: 800 !important;
+}
+
+/* Personal details: quiet optional fields, no extra save button. */
+.st-key-zan_profile_fields {
+    padding: 20px 22px !important;
+    border-radius: 20px !important;
+    background: linear-gradient(135deg, #FFF4F8, #FFFFFF) !important;
+    border: 1px solid #F0E3E9 !important;
+}
+.st-key-personal_page_content [data-testid="stMetric"] {
+    margin-top: 16px;
+    background: #FBE8EF;
+    border: 1px solid #F0D9E3;
+    border-radius: 18px;
+    padding: 16px;
+}
+
+/* Helpful shortcuts between the three core spaces. */
+.st-key-fridge_to_recipes button,
+.st-key-diary_to_fridge button,
+div[class*="st-key-recipe_to_diary_"] button {
+    min-height: 46px !important;
+    border-radius: 14px !important;
+    border: 1px solid #E5B9CC !important;
+    background: #FBE8EF !important;
+    color: #713750 !important;
+    font-weight: 750 !important;
+}
+.st-key-fridge_to_recipes button p,
+.st-key-diary_to_fridge button p,
+div[class*="st-key-recipe_to_diary_"] button p {
+    color: #713750 !important;
+}
+.st-key-fridge_to_recipes button:hover,
+.st-key-diary_to_fridge button:hover,
+div[class*="st-key-recipe_to_diary_"] button:hover {
+    border-color: #C77998 !important;
+    background: #F5C5D8 !important;
+}
+
+/* Search is an understated input, not another button. */
+.st-key-search_saved_recipes input {
+    background: #FFFFFF !important;
+    color: #513747 !important;
+    border-radius: 14px !important;
+    border-color: #E8CCD8 !important;
+    min-height: 47px !important;
+}
+
+@media (max-width: 760px) {
+    .st-key-zan_profile_fields {padding: 12px !important;}
+    .st-key-recipes_page_content,
+    .st-key-meals_page_content,
+    .st-key-fridge_page_content {padding-inline: 2px;}
+}
+
+/* ================================================
+   EXACT ORIGINAL HOME CARDS — CLICKABLE OVERLAY
+   The visible markup uses original .feature-card classes
+   in style.css. The native nav button is a transparent hit area.
+   No duplicate text/buttons in the layout.
+================================================ */
+.st-key-home_inventory_card,
+.st-key-home_shopping_card {
+    position: relative !important;
+    isolation: isolate;
+    width: 100%;
+    cursor: pointer;
+}
+.st-key-home_inventory_card .feature-card,
+.st-key-home_shopping_card .feature-card {
+    box-sizing: border-box;
+    height: 100%;
+    min-height: 230px;
+    cursor: pointer;
+    background: #FFFFFF !important;
+    border: 1px solid transparent !important;
+    transition: background-color .24s ease, transform .24s ease,
+                box-shadow .24s ease;
+}
+/* Position the Streamlit button's outer element, not just its button,
+   so it takes ZERO extra space below the original card. */
+.st-key-home_inventory_card .st-key-home_inventory_open,
+.st-key-home_shopping_card .st-key-home_shopping_open,
+.st-key-home_inventory_card [data-testid="stElementContainer"]:has(.st-key-home_inventory_open),
+.st-key-home_shopping_card [data-testid="stElementContainer"]:has(.st-key-home_shopping_open),
+.st-key-home_inventory_card [data-testid="stButton"],
+.st-key-home_shopping_card [data-testid="stButton"] {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.st-key-home_inventory_card .st-key-home_inventory_open button,
+.st-key-home_shopping_card .st-key-home_shopping_open button,
+.st-key-home_inventory_card [data-testid="stButton"] button,
+.st-key-home_shopping_card [data-testid="stButton"] button {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    opacity: 0 !important;
+    cursor: pointer !important;
+}
+/* Both cards start white. Hover, touch and keyboard focus tint them pink,
+   with no coloured border or focus outline. */
+.st-key-home_inventory_card:hover .feature-card,
+.st-key-home_shopping_card:hover .feature-card,
+.st-key-home_inventory_card:focus-within .feature-card,
+.st-key-home_shopping_card:focus-within .feature-card,
+.st-key-home_inventory_card:active .feature-card,
+.st-key-home_shopping_card:active .feature-card {
+    background: #FBE8EF !important;
+    border-color: transparent !important;
+    outline: none !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 27px rgba(100,54,75,.10);
+}
+
+/* ================================================
+   BUTTON SYSTEM — a calmer, consistent Zān palette
+   Primary = warm mulberry with crisp white labels.
+   Secondary = white with plum labels; soft blush hover.
+   This deliberately does not touch the Home card overlay.
+================================================ */
+:root {
+    --zan-button-bg: #974966;
+    --zan-button-hover: #7C3654;
+    --zan-button-text: #FFFFFF;
+    --zan-button-secondary-text: #513747;
+    --zan-button-secondary-border: #E5CDD7;
+    --zan-button-soft-hover: #FBE8EF;
+}
+
+/* Keep font weight and radius restrained rather than oversized. */
+.st-key-fridge_page_content [data-testid="stBaseButton-primary"],
+.st-key-meals_page_content [data-testid="stBaseButton-primary"],
+.st-key-recipes_page_content [data-testid="stBaseButton-primary"],
+.st-key-personal_page_content [data-testid="stBaseButton-primary"],
+.st-key-shopping_page_content [data-testid="stBaseButton-primary"],
+[data-testid="stFormSubmitButton"] [data-testid="stBaseButton-primary"],
+.st-key-fridge_page_content .st-key-scan_fridge button,
+.st-key-meals_page_content .st-key-scan_meal button,
+.st-key-fridge_page_content [class*="st-key-save_fridge_"] button,
+.st-key-meals_page_content [class*="st-key-save_meal_"] button,
+.st-key-recipes_page_content .st-key-generate_recipes button {
+    background: var(--zan-button-bg) !important;
+    background-color: var(--zan-button-bg) !important;
+    color: var(--zan-button-text) !important;
+    -webkit-text-fill-color: var(--zan-button-text) !important;
+    border: 1px solid var(--zan-button-bg) !important;
+    border-radius: 13px !important;
+    min-height: 46px !important;
+    padding: 10px 17px !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: .88rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .012em !important;
+    box-shadow: 0 3px 10px rgba(81, 55, 71, .09) !important;
+    transition: background .18s ease, border-color .18s ease, transform .18s ease !important;
+}
+.st-key-fridge_page_content [data-testid="stBaseButton-primary"] *,
+.st-key-meals_page_content [data-testid="stBaseButton-primary"] *,
+.st-key-recipes_page_content [data-testid="stBaseButton-primary"] *,
+.st-key-personal_page_content [data-testid="stBaseButton-primary"] *,
+.st-key-shopping_page_content [data-testid="stBaseButton-primary"] *,
+[data-testid="stFormSubmitButton"] [data-testid="stBaseButton-primary"] *,
+.st-key-fridge_page_content .st-key-scan_fridge button *,
+.st-key-meals_page_content .st-key-scan_meal button *,
+.st-key-fridge_page_content [class*="st-key-save_fridge_"] button *,
+.st-key-meals_page_content [class*="st-key-save_meal_"] button *,
+.st-key-recipes_page_content .st-key-generate_recipes button * {
+    color: var(--zan-button-text) !important;
+    -webkit-text-fill-color: var(--zan-button-text) !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+.st-key-fridge_page_content [data-testid="stBaseButton-primary"]:hover,
+.st-key-meals_page_content [data-testid="stBaseButton-primary"]:hover,
+.st-key-recipes_page_content [data-testid="stBaseButton-primary"]:hover,
+.st-key-personal_page_content [data-testid="stBaseButton-primary"]:hover,
+.st-key-shopping_page_content [data-testid="stBaseButton-primary"]:hover,
+[data-testid="stFormSubmitButton"] [data-testid="stBaseButton-primary"]:hover,
+.st-key-fridge_page_content .st-key-scan_fridge button:hover,
+.st-key-meals_page_content .st-key-scan_meal button:hover,
+.st-key-fridge_page_content [class*="st-key-save_fridge_"] button:hover,
+.st-key-meals_page_content [class*="st-key-save_meal_"] button:hover,
+.st-key-recipes_page_content .st-key-generate_recipes button:hover {
+    background: var(--zan-button-hover) !important;
+    background-color: var(--zan-button-hover) !important;
+    border-color: var(--zan-button-hover) !important;
+    color: #FFFFFF !important;
+}
+
+/* Secondary actions: understated, readable, and consistent. */
+.st-key-fridge_page_content [data-testid="stFormSubmitButton"] button,
+.st-key-meals_page_content [data-testid="stFormSubmitButton"] button,
+.st-key-fridge_to_recipes button,
+.st-key-diary_to_fridge button,
+.st-key-fresh_recipes button,
+.st-key-zan_logout button,
+div[class*="st-key-recipe_to_diary_"] button {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    color: var(--zan-button-secondary-text) !important;
+    -webkit-text-fill-color: var(--zan-button-secondary-text) !important;
+    border: 1px solid var(--zan-button-secondary-border) !important;
+    border-radius: 13px !important;
+    min-height: 44px !important;
+    padding: 9px 15px !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: .86rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .01em !important;
+    box-shadow: none !important;
+    transition: background .18s ease, border-color .18s ease !important;
+}
+.st-key-fridge_page_content [data-testid="stFormSubmitButton"] button *,
+.st-key-meals_page_content [data-testid="stFormSubmitButton"] button *,
+.st-key-fridge_to_recipes button *,
+.st-key-diary_to_fridge button *,
+.st-key-fresh_recipes button *,
+.st-key-zan_logout button *,
+div[class*="st-key-recipe_to_diary_"] button * {
+    color: var(--zan-button-secondary-text) !important;
+    -webkit-text-fill-color: var(--zan-button-secondary-text) !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 600 !important;
+}
+.st-key-fridge_page_content [data-testid="stFormSubmitButton"] button:hover,
+.st-key-meals_page_content [data-testid="stFormSubmitButton"] button:hover,
+.st-key-fridge_to_recipes button:hover,
+.st-key-diary_to_fridge button:hover,
+.st-key-fresh_recipes button:hover,
+.st-key-zan_logout button:hover,
+div[class*="st-key-recipe_to_diary_"] button:hover {
+    background: var(--zan-button-soft-hover) !important;
+    background-color: var(--zan-button-soft-hover) !important;
+    border-color: #D9A6BB !important;
+}
+
+/* Personal form controls complement the same palette. */
+.st-key-personal_page_content label {
+    font-family: 'DM Sans', sans-serif !important;
+    color: #654B58 !important;
+    font-size: .86rem !important;
+    font-weight: 600 !important;
+}
+.st-key-personal_page_content input,
+.st-key-personal_page_content [data-baseweb="select"] > div {
+    background: #FFFFFF !important;
+    border-color: #E5CDD7 !important;
+    border-radius: 12px !important;
+    color: #513747 !important;
+}
+.st-key-personal_page_content [data-testid="stMetric"] {
+    background: #FFFFFF !important;
+    border: 1px solid #EEDCE4 !important;
+    border-left: 4px solid #C77998 !important;
+    border-radius: 15px !important;
+    box-shadow: 0 3px 12px rgba(81,55,71,.035) !important;
+}
+
+@media (max-width: 760px) {
+    .overview-section { margin-top: 24px !important; }
+    .stats-grid { grid-template-columns: repeat(3, minmax(0,1fr)) !important; gap: 8px !important; }
+    .stat-card { min-height: 102px !important; padding: 12px 9px !important; }
+    .stat-number { font-size: 1.75rem !important; margin-top: 7px !important; }
+    .stat-label { font-size: .64rem !important; line-height: 1.25 !important; }
+    .stat-note { display: none !important; }
+    .stat-icon { width: 26px !important; height: 26px !important; font-size: .85rem !important; }
+    .st-key-home_inventory_card .feature-card,
+    .st-key-home_shopping_card .feature-card {
+        min-height: 190px !important;
+        padding: 21px !important;
+    }
+    .st-key-home_inventory_card .feature-title,
+    .st-key-home_shopping_card .feature-title {
+        font-size: 1.4rem !important;
+    }
+    .page-footer { margin-top: 24px !important; }
+}
+
+/* ==========================================
+   ZĀN — DREAMY ROSE PETAL DESIGN
+   Fonts and action buttons only
+========================================== */
+
+/* Body text, inputs and navigation */
+.stApp,
+.stApp p,
+.stApp label,
+.stApp input,
+.stApp textarea,
+.stApp .nav-link {
+    font-family: 'Manrope', sans-serif !important;
+}
+
+/* Elegant headings */
+.stApp h1,
+.stApp h2,
+.stApp h3,
+.stApp .brand-name,
+.stApp .feature-title,
+.stApp .card-title,
+.stApp .section-heading h2 {
+    font-family: 'Playfair Display', serif !important;
+}
+
+/* PRIMARY ACTION BUTTONS */
+.stApp [data-testid="stButton"] > button[kind="primary"],
+.stApp [data-testid="stFormSubmitButton"] > button[kind="primary"],
+.stApp div[class*="st-key-scan_fridge"] button,
+.stApp div[class*="st-key-scan_meal"] button,
+.stApp div[class*="st-key-save_fridge"] button,
+.stApp div[class*="st-key-save_meal"] button,
+.stApp div[class*="st-key-generate_recipes"] button,
+.stApp div[class*="st-key-find_recipes"] button {
+    background: #B84F7E !important;
+    border: 1px solid #B84F7E !important;
+    color: #FFFFFF !important;
+
+    font-family: 'Lora', Georgia, serif !important;
+    font-size: 1.02rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+
+    border-radius: 14px !important;
+    box-shadow: 0 4px 13px rgba(184, 79, 126, 0.14) !important;
+
+    transition: background .2s ease, box-shadow .2s ease !important;
+}
+
+/* Keep Streamlit's inner button text white */
+.stApp button[kind="primary"] p,
+.stApp button[kind="primary"] span,
+.stApp div[class*="st-key-scan_"] button p,
+.stApp div[class*="st-key-save_"] button p,
+.stApp div[class*="st-key-generate_recipes"] button p,
+.stApp div[class*="st-key-find_recipes"] button p {
+    color: #FFFFFF !important;
+    font-family: 'Lora', Georgia, serif !important;
+    font-size: 1.02rem !important;
+    font-weight: 500 !important;
+}
+
+/* Primary hover */
+.stApp button[kind="primary"]:hover,
+.stApp div[class*="st-key-scan_fridge"] button:hover,
+.stApp div[class*="st-key-scan_meal"] button:hover,
+.stApp div[class*="st-key-save_fridge"] button:hover,
+.stApp div[class*="st-key-save_meal"] button:hover,
+.stApp div[class*="st-key-generate_recipes"] button:hover,
+.stApp div[class*="st-key-find_recipes"] button:hover {
+    background: #A94673 !important;
+    border-color: #A94673 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 5px 15px rgba(169, 70, 115, 0.18) !important;
+}
+
+/* Secondary actions — soft romantic blush */
+.stApp div[class*="st-key-surprise"] button,
+.stApp .st-key-fresh_recipes button,
+.stApp [data-testid="stFormSubmitButton"] > button:not([kind="primary"]) {
+    background: #FFF1F6 !important;
+    border: 1px solid #E9C9D8 !important;
+    color: #7A425B !important;
+    font-family: 'Lora', Georgia, serif !important;
+    font-size: 1.02rem !important;
+    font-weight: 500 !important;
+    border-radius: 14px !important;
+    box-shadow: none !important;
+}
+
+.stApp div[class*="st-key-surprise"] button p,
+.stApp .st-key-fresh_recipes button p,
+.stApp [data-testid="stFormSubmitButton"] > button:not([kind="primary"]) p {
+    color: #7A425B !important;
+    font-family: 'Lora', Georgia, serif !important;
+    font-size: 1.02rem !important;
+}
+
+.stApp div[class*="st-key-surprise"] button:hover,
+.stApp .st-key-fresh_recipes button:hover,
+.stApp [data-testid="stFormSubmitButton"] > button:not([kind="primary"]):hover {
+    background: #FFE3EF !important;
+    border-color: #E7BDD0 !important;
+    color: #7A425B !important;
+}
+
+
+/* ==============================================
+   PHOTO REVIEW — image beside editable scan results
+   ============================================== */
+.st-key-fridge_scan_photo_preview,
+.st-key-meal_scan_photo_preview {
+    background: linear-gradient(145deg, #FFF3F8 0%, #FFFBFD 100%) !important;
+    border: 1px solid #F0DCE6 !important;
+    border-radius: 20px !important;
+    padding: 15px !important;
+    box-shadow: 0 5px 20px rgba(81, 55, 71, .045) !important;
+}
+.st-key-fridge_scan_photo_preview .zan-scan-photo-label,
+.st-key-meal_scan_photo_preview .zan-scan-photo-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Manrope', sans-serif !important;
+    font-size: .68rem;
+    letter-spacing: .15em;
+    font-weight: 700;
+    color: #8F5570;
+    margin: 1px 2px 11px;
+}
+.st-key-fridge_scan_photo_preview .zan-scan-photo-label span,
+.st-key-meal_scan_photo_preview .zan-scan-photo-label span {
+    color: #C978A0;
+    font-size: 1rem;
+}
+.st-key-fridge_scan_photo_preview [data-testid="stImage"] img,
+.st-key-meal_scan_photo_preview [data-testid="stImage"] img {
+    display: block;
+    width: 100% !important;
+    max-height: 390px !important;
+    object-fit: contain !important;
+    background: #FFFFFF;
+    border-radius: 14px !important;
+    border: 1px solid #F0E2E8;
+    box-shadow: 0 4px 13px rgba(81, 55, 71, .07);
+}
+.st-key-fridge_scan_photo_preview [data-testid="stCaptionContainer"],
+.st-key-meal_scan_photo_preview [data-testid="stCaptionContainer"] {
+    font-family: 'Manrope', sans-serif !important;
+    font-size: .78rem;
+    color: #806977;
+}
+.st-key-fridge_scan_photo_preview button,
+.st-key-meal_scan_photo_preview button {
+    background: #FFFFFF !important;
+    color: #79425D !important;
+    border: 1px solid #E9C9D8 !important;
+    border-radius: 13px !important;
+    box-shadow: none !important;
+    min-height: 42px !important;
+    font: 500 .97rem 'Lora', Georgia, serif !important;
+}
+.st-key-fridge_scan_photo_preview button *,
+.st-key-meal_scan_photo_preview button * {
+    color: #79425D !important;
+    font: 500 .97rem 'Lora', Georgia, serif !important;
+}
+.st-key-fridge_scan_photo_preview button:hover,
+.st-key-meal_scan_photo_preview button:hover {
+    background: #FBE8EF !important;
+    border-color: #E5BBD0 !important;
+}
+@media (min-width: 901px) {
+    .st-key-fridge_scan_photo_preview,
+    .st-key-meal_scan_photo_preview {
+        position: sticky;
+        top: 72px;
+    }
+}
+@media (max-width: 760px) {
+    .st-key-fridge_scan_photo_preview [data-testid="stImage"] img,
+    .st-key-meal_scan_photo_preview [data-testid="stImage"] img {
+        max-height: 295px !important;
+    }
+}
+
+
+/* Saved meal diary: real private photo previews, discreet and compact. */
+div[class*="st-key-meal_history_photo_"] [data-testid="stImage"] {
+    overflow: hidden;
+    border-radius: 15px !important;
+    border: 1px solid #F0E3E9;
+    background: #FFF6FA;
+}
+div[class*="st-key-meal_history_photo_"] img {
+    border-radius: 14px !important;
+    display: block;
+    width: 100% !important;
+    object-fit: cover !important;
+    max-height: 185px !important;
+}
+.st-key-meals_page_content div[class*="st-key-toggle_meal_photo_"] button {
+    background: #FFF1F6 !important;
+    border: 1px solid #E9C9D8 !important;
+    border-radius: 12px !important;
+    color: #7A425B !important;
+    box-shadow: none !important;
+    font: 500 0.91rem 'Lora', Georgia, serif !important;
+}
+.st-key-meals_page_content div[class*="st-key-toggle_meal_photo_"] button * {
+    color: #7A425B !important;
+    -webkit-text-fill-color: #7A425B !important;
+    font: inherit !important;
+}
+.st-key-meals_page_content div[class*="st-key-toggle_meal_photo_"] button:hover {
+    background: #FFE3EF !important;
+}
+
+
+/* Opened photo: larger preview beneath the meal, instead of the compact thumb. */
+.st-key-meals_page_content div[class*="st-key-meal_history_photo_full_"] img {
+    width: 100% !important;
+    max-height: 440px !important;
+    object-fit: contain !important;
+    background: #FFF6FA;
+}
+
+
+/* ======================================================
+   ZAN INTERACTION FEEDBACK — consistent, recognisable states
+   Colour is not the only signal: selected corrections display
+   a tick and an inline confirmation; keyboard focus stays visible.
+   Preserve the invisible Home-card navigation overlays.
+   ====================================================== */
+:root {
+    --zan-interaction-ink: #713750;
+    --zan-interaction-hover: #FBE8EF;
+    --zan-interaction-pressed: #F5D3E1;
+    --zan-interaction-border: #E6B8CD;
+    --zan-interaction-focus: #B84F7E;
+}
+
+/* Button motion is subtle and consistent across editable pages. */
+.stApp :is(
+    .st-key-fridge_page_content,
+    .st-key-meals_page_content,
+    .st-key-recipes_page_content,
+    .st-key-shopping_page_content,
+    .st-key-personal_page_content
+) button {
+    transition: background-color .18s ease, border-color .18s ease,
+                color .18s ease, box-shadow .18s ease,
+                transform .18s ease !important;
+}
+
+/* Light/transparent actions: photo change, add, diary shortcuts,
+   recipe shortcuts, shopping toggles and profile actions.  Keep
+   delete/remove (×) controls compact and intentionally distinct. */
+.stApp :is(
+    .st-key-fridge_page_content,
+    .st-key-meals_page_content,
+    .st-key-recipes_page_content,
+    .st-key-shopping_page_content,
+    .st-key-personal_page_content
+) :is([data-testid="stButton"], [data-testid="stFormSubmitButton"])
+button:not([kind="primary"]):not([data-testid="stBaseButton-primary"]):not(:is(div[class*="st-key-remove_"] button, div[class*="st-key-delete_"] button)):hover {
+    background: var(--zan-interaction-hover) !important;
+    background-color: var(--zan-interaction-hover) !important;
+    border-color: var(--zan-interaction-border) !important;
+    color: var(--zan-interaction-ink) !important;
+    box-shadow: 0 3px 11px rgba(184, 79, 126, .085) !important;
+}
+.stApp :is(
+    .st-key-fridge_page_content,
+    .st-key-meals_page_content,
+    .st-key-recipes_page_content,
+    .st-key-shopping_page_content,
+    .st-key-personal_page_content
+) :is([data-testid="stButton"], [data-testid="stFormSubmitButton"])
+button:not([kind="primary"]):not([data-testid="stBaseButton-primary"]):not(:is(div[class*="st-key-remove_"] button, div[class*="st-key-delete_"] button)):hover :is(p, span) {
+    color: var(--zan-interaction-ink) !important;
+    -webkit-text-fill-color: var(--zan-interaction-ink) !important;
+}
+.stApp :is(
+    .st-key-fridge_page_content,
+    .st-key-meals_page_content,
+    .st-key-recipes_page_content,
+    .st-key-shopping_page_content,
+    .st-key-personal_page_content
+) :is([data-testid="stButton"], [data-testid="stFormSubmitButton"])
+button:not([kind="primary"]):not([data-testid="stBaseButton-primary"]):not(:is(div[class*="st-key-remove_"] button, div[class*="st-key-delete_"] button)):active {
+    background: var(--zan-interaction-pressed) !important;
+    border-color: var(--zan-interaction-focus) !important;
+    transform: translateY(1px) !important;
+    box-shadow: none !important;
+}
+
+/* Primary buttons already have rose hover; add a brief tactile press. */
+.stApp :is(
+    .st-key-fridge_page_content,
+    .st-key-meals_page_content,
+    .st-key-recipes_page_content,
+    .st-key-shopping_page_content,
+    .st-key-personal_page_content
+) :is(button[kind="primary"], button[data-testid="stBaseButton-primary"]):active {
+    background: #96385F !important;
+    border-color: #96385F !important;
+    transform: translateY(1px) !important;
+    box-shadow: none !important;
+}
+
+/* The suggestion pills need far stronger feedback than a subtle border.
+   Streamlit versions can expose aria-pressed or aria-checked states. */
+.stApp div[class*="st-key-suggest_fridge_"] button,
+.stApp div[class*="st-key-suggest_meal_"] button {
+    background: #FFFFFF !important;
+    border: 1px solid #E5C6D4 !important;
+    border-radius: 999px !important;
+    color: #713750 !important;
+    min-height: 40px !important;
+    box-shadow: none !important;
+    transition: background-color .18s ease, border-color .18s ease,
+                box-shadow .18s ease, transform .18s ease !important;
+}
+.stApp div[class*="st-key-suggest_fridge_"] button:hover,
+.stApp div[class*="st-key-suggest_meal_"] button:hover {
+    background: #FBE8EF !important;
+    border-color: #C77998 !important;
+    box-shadow: 0 3px 10px rgba(184, 79, 126, .08) !important;
+}
+.stApp div[class*="st-key-suggest_fridge_"] button:hover *,
+.stApp div[class*="st-key-suggest_meal_"] button:hover * {
+    color: #713750 !important;
+    -webkit-text-fill-color: #713750 !important;
+}
+.stApp div[class*="st-key-suggest_fridge_"] button:active,
+.stApp div[class*="st-key-suggest_meal_"] button:active {
+    transform: translateY(1px) !important;
+}
+.stApp div[class*="st-key-suggest_fridge_"] button:is([aria-pressed="true"], [aria-checked="true"], [aria-selected="true"]),
+.stApp div[class*="st-key-suggest_meal_"] button:is([aria-pressed="true"], [aria-checked="true"], [aria-selected="true"]) {
+    background: #B84F7E !important;
+    border-color: #B84F7E !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 3px 11px rgba(184, 79, 126, .16) !important;
+}
+.stApp div[class*="st-key-suggest_fridge_"] button:is([aria-pressed="true"], [aria-checked="true"], [aria-selected="true"]) *,
+.stApp div[class*="st-key-suggest_meal_"] button:is([aria-pressed="true"], [aria-checked="true"], [aria-selected="true"]) * {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+}
+.stApp div[class*="st-key-suggest_fridge_"] button:is([aria-pressed="true"], [aria-checked="true"], [aria-selected="true"]):hover,
+.stApp div[class*="st-key-suggest_meal_"] button:is([aria-pressed="true"], [aria-checked="true"], [aria-selected="true"]):hover {
+    background: #A94673 !important;
+    border-color: #A94673 !important;
+}
+
+/* An edited food name is now unambiguous even if it differs by one word. */
+.zan-review-selection {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 6px 0 12px;
+    padding: 8px 11px;
+    border-radius: 11px;
+    border: 1px solid #EAC5D4;
+    background: #FFF0F6;
+    color: #713750;
+    font: 500 .78rem/1.45 'Manrope', sans-serif;
+    overflow-wrap: anywhere;
+}
+.zan-review-selection strong {
+    color: #7F3056;
+    font-weight: 700;
+}
+.zan-review-selection-tick {
+    display: grid;
+    place-items: center;
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #B84F7E;
+    color: #FFFFFF;
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+/* Recipe ingredient pills are selected choices, not generic buttons. */
+.stApp .st-key-recipe_ingredient_selection button:hover {
+    background: #FBE8EF !important;
+    border-color: #C77998 !important;
+    color: #713750 !important;
+    box-shadow: 0 2px 7px rgba(184,79,126,.07) !important;
+}
+.stApp .st-key-recipe_ingredient_selection button:hover * {
+    color: #713750 !important;
+}
+.stApp .st-key-recipe_ingredient_selection button:is([aria-pressed="true"], [aria-checked="true"], [aria-selected="true"]) {
+    background: #F2C8DA !important;
+    border-color: #B84F7E !important;
+    color: #713750 !important;
+    box-shadow: inset 0 0 0 1px #B84F7E !important;
+}
+.stApp .st-key-recipe_ingredient_selection button:is([aria-pressed="true"], [aria-checked="true"], [aria-selected="true"]) * {
+    color: #713750 !important;
+}
+
+/* Navigation is clickable too: predictable pink hover, active remains visible. */
+.stApp div[class*="st-key-nav_"] button:not([kind="primary"]):hover,
+.stApp div[class*="st-key-mobile_nav_"] button:not([kind="primary"]):hover,
+.stApp .st-key-mobile_navigation [data-testid="stPopover"] > button:hover {
+    background: #FBE8EF !important;
+    border-color: #EAC5D4 !important;
+    color: #713750 !important;
+}
+.stApp div[class*="st-key-nav_"] button:hover *,
+.stApp div[class*="st-key-mobile_nav_"] button:hover * {
+    color: #713750 !important;
+}
+
+/* Focus is visible for keyboard users, without modifying Home-card design. */
+.stApp :is(
+    .st-key-fridge_page_content,
+    .st-key-meals_page_content,
+    .st-key-recipes_page_content,
+    .st-key-shopping_page_content,
+    .st-key-personal_page_content,
+    .st-key-desktop_navigation,
+    .st-key-mobile_navigation
+) button:focus-visible {
+    outline: 2px solid #B84F7E !important;
+    outline-offset: 2px !important;
+}
+@media (prefers-reduced-motion: reduce) {
+    .stApp button {transition-duration: 0ms !important;}
+    .stApp button:active {transform: none !important;}
+}
+
+
+/* ===============================================
+   Zān: gentle actions + actionable confirmation
+   Added only to the approved screens; Home untouched.
+=============================================== */
+.zan-review-caution {
+    margin-bottom: 9px; padding: 7px 11px; width: fit-content;
+    border-radius: 10px; background: #FFF1F6; border: 1px solid #EED3DF;
+    color: #7E4C64; font: 600 .76rem/1.5 'Manrope',sans-serif;
+}
+.zan-diary-date,.zan-shopping-group-title {
+    font: 600 .82rem/1.5 'Manrope',sans-serif;
+    letter-spacing: .04em; color: #85546E; margin: 20px 0 9px;
+}
+.zan-shopping-name {display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:8px;color:#513747;font:600 .92rem/1.5 'Manrope',sans-serif;}
+.zan-shopping-name.is-done > span:first-child {text-decoration:line-through;
+    text-decoration-thickness:1px;color:#947E8A;opacity:.84;}
+.zan-shopping-done-label {color:#865775;background:#FFF0F6;border-radius:99px;
+    padding:4px 9px;font:600 .7rem 'Manrope',sans-serif;}
+.stApp div[class*="st-key-shopping_row_"]:has(.zan-shopping-name.is-done) {
+    background:#FFFBFD !important;border-color:#F0E7EC !important;
+}
+.stApp div[class*="st-key-delete_open_"] button {
+    min-height:42px!important;min-width:42px!important;width:42px!important;
+    padding:0!important;background:#FFFFFF!important;border-radius:50%!important;
+    border:1px solid #EEDCE4!important;color:#A53268!important;
+    font-size:1.25rem!important;box-shadow:none!important;
+}
+.stApp div[class*="st-key-delete_open_"] button:hover {
+    background:#FBE8EF!important;border-color:#D9A6BB!important;
+}
+.stApp div[class*="st-key-delete_confirm_"] {
+    background:#FFF4F8;border:1px solid #F0D8E2;border-radius:12px;
+    padding:10px 12px;margin:8px 0 4px;
+}
+.stApp div[class*="st-key-delete_confirm_"] [data-testid="stCaptionContainer"] {
+    color:#68475A;font:600 .82rem 'Manrope',sans-serif;
+}
+.stApp div[class*="st-key-delete_confirm_"] button {
+    min-height:38px;border-radius:10px;font-size:.85rem !important;
+}
+.stApp div[class*="st-key-delete_confirm_"] button:hover {
+    background:#FBE0EB !important;color:#663A50 !important;
+    border-color:#D99DB7 !important;
+}
+.stApp div[class*="st-key-delete_confirm_"] button:hover * {
+    color:#663A50 !important;-webkit-text-fill-color:#663A50 !important;
+}
+.zan-reader {padding:12px 15px;background:#FFF4F8;border:1px solid #EED5DF;
+    border-radius:14px;font-family:'Manrope',sans-serif;color:#513747;}
+.zan-reader-label {font:600 .8rem 'Manrope',sans-serif;margin-bottom:10px;}
+.zan-reader-actions {display:flex;gap:8px;flex-wrap:wrap;}
+.zan-reader-actions button {border:1px solid #E9C9D8;border-radius:10px;
+    padding:9px 13px;background:#FFFFFF;color:#7A425B;cursor:pointer;
+    font:500 .8rem 'Lora',Georgia,serif;transition:background .15s ease,border-color .15s ease;}
+.zan-reader-actions button:first-child {background:#B84F7E;color:white;border-color:#B84F7E;}
+.zan-reader-actions button:hover {background:#FFE1EE;border-color:#B84F7E;color:#713750;}
+.zan-reader-actions button:first-child:hover {background:#A94673;color:white;}
+.zan-reader-actions button:focus-visible {outline:2px solid #B84F7E;outline-offset:2px;}
+.zan-reader-status {display:block;margin-top:8px;font:400 .72rem 'Manrope',sans-serif;color:#957C89;}
+@media (max-width:760px) {
+    /* Soft floating save affordance, only while reviewing a scan. */
+    .st-key-fridge_page_content div[class*="st-key-save_fridge_"],
+    .st-key-meals_page_content div[class*="st-key-save_meal_"] {
+        position:sticky !important;bottom:10px;z-index:8;
+        padding:6px;border:1px solid #F0E3E9;border-radius:17px;
+        background:rgba(255,250,252,.96);
+        box-shadow:0 8px 22px rgba(81,55,71,.13);
+    }
+    .zan-reader-actions {gap:5px;}
+    .zan-reader-actions button {padding:9px 11px;}
+}
+@media (prefers-reduced-motion: reduce) {
+    .zan-reader-actions button {transition:none;}
+}
+
+/* The two confirmation choices stay legible at phone widths. */
+.stApp div[class*="st-key-delete_confirm_"] button {
+    border:1px solid #E9CAD7!important;
+    background:#FFFFFF!important;color:#70475B!important;
+    font-family:'Lora',Georgia,serif!important;
+    font-weight:500!important;box-shadow:none!important;
+    padding:8px 9px!important;
+}
+.stApp div[class*="st-key-delete_confirm_"] button :is(p,span) {
+    color:#70475B!important;-webkit-text-fill-color:#70475B!important;
+    font-family:'Lora',Georgia,serif!important;
+}
+.stApp div[class*="st-key-delete_confirm_"] div[class*="st-key-delete_yes_"] button {
+    background:#B84F7E!important;border-color:#B84F7E!important;color:#FFFFFF!important;
+}
+.stApp div[class*="st-key-delete_confirm_"] div[class*="st-key-delete_yes_"] button :is(p,span) {
+    color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;
+}
+.stApp div[class*="st-key-delete_confirm_"] div[class*="st-key-delete_yes_"] button:hover {
+    background:#A94673!important;border-color:#A94673!important;color:#FFFFFF!important;
+}
+.stApp div[class*="st-key-delete_confirm_"] div[class*="st-key-delete_yes_"] button:hover :is(p,span) {
+    color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;
+}
+
+
+/* Shopping voice: inline mic aligns with the bottom of the same text field. */
+.st-key-shopping_page_content .st-key-zan_shopping_microphone {min-width:46px;}
+.st-key-shopping_page_content .st-key-zan_shopping_add button {min-height:46px;}
+/* The reader lets people choose any English voice their own device offers. */
+.zan-reader-top {display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:9px;margin-bottom:10px;}
+.zan-reader-top .zan-reader-label {margin-bottom:2px;}
+.zan-reader-voice-label {display:flex;align-items:center;gap:8px;font:600 .75rem 'Manrope',sans-serif;color:#83516B;}
+.zan-reader-voice {max-width:min(100%,270px);min-height:36px;padding:5px 9px;
+    border:1px solid #E9C9D8;border-radius:10px;background:#FFFFFF;color:#654255;
+    font:500 .76rem 'Manrope',sans-serif;}
+.zan-reader-voice:focus-visible {outline:2px solid #B84F7E;outline-offset:2px;}
+/* ==========================================
+   HOME OVERVIEW CLICKABLE CARDS
+========================================== */
+
+.overview-card-shell {
+    margin-bottom: -42px;
+    position: relative;
+    z-index: 1;
+}
+
+.overview-card-content {
+    min-height: 155px;
+    padding: 21px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFF9FC 100%);
+    border: 1px solid #F3E3EA;
+    box-shadow: 0 10px 28px rgba(81, 55, 71, .05);
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.overview-card-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(81, 55, 71, .08);
+    background: linear-gradient(180deg, #FFF7FB 0%, #FDEEF5 100%);
+}
+
+div[class*="st-key-overview_"] {
+    position: relative;
+    z-index: 2;
+}
+
+div[class*="st-key-overview_"] button {
+    min-height: 155px !important;
+    margin-top: -155px !important;
+    opacity: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+}
+
+div[class*="st-key-overview_"] button:hover {
+    background: transparent !important;
+}
+
+div[class*="st-key-overview_"] button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* ==========================================
+   HOME PAGE EXTRA CUTE TOUCH
+========================================== */
+
+.section-heading h2::after {
+    content: "  ฅ^•ﻌ•^ฅ";
+    font-size: 0.78em;
+    color: #C85D8C;
+    margin-left: 6px;
+}
+
+/* Optional tiny sparkle accents */
+.metric-icon {
+    filter: drop-shadow(0 2px 4px rgba(200, 93, 140, .14));
+}
+
+.feature-card,
+.content-card {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFF9FC 100%) !important;
+    border: 1px solid #F2E2E9 !important;
+    box-shadow: 0 10px 26px rgba(81, 55, 71, .045) !important;
+}
+
+.feature-card:hover,
+.content-card:hover {
+    background: linear-gradient(180deg, #FFF8FB 0%, #FDEEF5 100%) !important;
+    box-shadow: 0 14px 30px rgba(81, 55, 71, .08) !important;
+}

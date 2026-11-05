@@ -1,0 +1,33 @@
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key
+credentials.json
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+*.zip
+
+# Local files and development backups
+app_backup.py
+.agents/
+.claude/
+*_export.csv
+fridge[0-9]*.jpeg
+
+# Secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Local environments
+.venv/
+venv/
+__pycache__/
+.DS_Store
